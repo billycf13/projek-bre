@@ -11,6 +11,7 @@ import { Analitik } from "./pages/Analitik";
 import { Profile } from "./pages/Profile";
 import { Schedule } from "./pages/Schedule";
 import { Kampanye } from "./pages/Kampanye";
+import { Login } from "./pages/Login";
 
 const app = new Hono();
 
@@ -18,8 +19,9 @@ const app = new Hono();
 app.use("/static/*", serveStatic({ root: "./src/" }));
 
 // Routes
-app.get("/", (c) => c.html(<Home />));
-app.get("/pesan", (c) => c.html(<Pesan />));
+app.get("/login", (c) => c.html(<Login />));
+// app.get("/", (c) => c.html(<Home />));
+app.get("/", (c) => c.html(<Pesan />));
 
 // Kontak Routes
 app.get("/kontak", (c) => c.html(<Kontak />));

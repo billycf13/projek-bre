@@ -2,7 +2,7 @@ import type { FC } from "hono/jsx";
 import { Icon } from "./Icon";
 
 const navItems = [
-  { icon: "MessageSquareText" as const, label: "Pesan", href: "/pesan" },
+  { icon: "MessageSquareText" as const, label: "Pesan", href: "/" },
   { icon: "Contact" as const, label: "Kontak", href: "/kontak" },
   { icon: "Megaphone" as const, label: "Kampanye", href: "/kampanye" },
   { icon: "CalendarClock" as const, label: "Schedule", href: "/schedule" },
@@ -28,7 +28,7 @@ export const Nav: FC<{ active?: string }> = ({ active }) => {
           class={`${itemBase} mt-3 mb-4 !text-[var(--accent)]`}
           aria-label="Home"
         >
-          <Icon name="Hexagon" size={22} />
+          <Icon name="HatGlasses" size={22} />
         </a>
 
         <div class="flex flex-col items-center w-full">
@@ -56,7 +56,7 @@ export const Nav: FC<{ active?: string }> = ({ active }) => {
         >
           <Icon name="SunMoon" size={20} />
         </button>
-        
+
         {/* Profile Menu with Popup */}
         <div class="relative mt-1" id="profile-menu-container">
           <button
@@ -68,14 +68,14 @@ export const Nav: FC<{ active?: string }> = ({ active }) => {
           >
             <Icon name="CircleUserRound" size={20} />
           </button>
-          
+
           {/* Popup Menu */}
-          <div 
-            id="profile-popup" 
+          <div
+            id="profile-popup"
             class="hidden absolute left-full bottom-0 ml-2 w-40 bg-[var(--bg-nav)] border border-[var(--border-subtle)] rounded-xl shadow-xl z-[200] overflow-hidden animate-in fade-in slide-in-from-left-2 duration-200"
           >
             <div class="p-2 border-b border-[var(--border-subtle)] bg-[var(--bg-body)]">
-               <div class="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest px-2 py-1">Akun Saya</div>
+              <div class="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest px-2 py-1">Akun Saya</div>
             </div>
             <div class="p-1">
               <a href="/profile" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--text-primary)] hover:bg-[var(--bg-nav-hover)] hover:text-[var(--accent)] rounded-lg transition-colors no-underline border-none">
@@ -91,7 +91,8 @@ export const Nav: FC<{ active?: string }> = ({ active }) => {
         </div>
 
         {/* Script to close popup when clicking outside */}
-        <script dangerouslySetInnerHTML={{ __html: `
+        <script dangerouslySetInnerHTML={{
+          __html: `
           document.addEventListener('click', function(event) {
             const container = document.getElementById('profile-menu-container');
             const popup = document.getElementById('profile-popup');
