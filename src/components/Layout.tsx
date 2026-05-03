@@ -34,7 +34,10 @@ export const Layout: FC<
           })();
         `}} />
       </head>
-      <body class="m-0 h-screen bg-[var(--bg-body)] text-[var(--text-primary)] font-[system-ui,-apple-system,sans-serif]">
+      <body 
+        class="m-0 h-screen bg-[var(--bg-body)] text-[var(--text-primary)] font-[system-ui,-apple-system,sans-serif]"
+        hx-boost="true"
+      >
         <div class="flex h-screen overflow-hidden">
           <Nav active={active} />
           <main class={`flex-1 overflow-y-auto ml-[var(--nav-w)] ${noPadding ? "" : "p-6"}`}>
