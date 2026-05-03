@@ -7,6 +7,7 @@ import { KotakMasuk } from "../components/pengaturan/KotakMasuk";
 import { Label } from "../components/pengaturan/Label";
 import { JawabanCepat } from "../components/pengaturan/JawabanCepat";
 import { Integrasi } from "../components/pengaturan/Integrasi";
+import { SosialMedia } from "../components/pengaturan/SosialMedia";
 
 const MENU_ITEMS = [
   { id: "aplikasi", label: "Aplikasi", icon: "LayoutDashboard" },
@@ -14,6 +15,7 @@ const MENU_ITEMS = [
   { id: "kotak-masuk", label: "Kotak Masuk", icon: "Inbox" },
   { id: "label", label: "Label", icon: "Tags" },
   { id: "jawaban-cepat", label: "Jawaban Cepat", icon: "MessageSquareQuote" },
+  { id: "sosial-media", label: "Sosial Media", icon: "Share2" },
   { id: "integrasi", label: "Integrasi", icon: "Blocks" },
 ];
 
@@ -25,6 +27,7 @@ export const Pengaturan: FC<{ activeTab?: string }> = ({ activeTab = "aplikasi" 
       case "kotak-masuk": return <KotakMasuk />;
       case "label": return <Label />;
       case "jawaban-cepat": return <JawabanCepat />;
+      case "sosial-media": return <SosialMedia />;
       case "integrasi": return <Integrasi />;
       default: return <Aplikasi />;
     }

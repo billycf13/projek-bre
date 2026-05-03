@@ -65,7 +65,7 @@ export const Schedule: FC = () => {
                   <div class="absolute top-3 left-3 flex gap-1">
                     {post.channels.map(ch => (
                       <div class="bg-black/40 backdrop-blur-md text-white p-1.5 rounded-lg border border-white/10" title={ch}>
-                         <Icon name={ch === 'Instagram' ? 'Instagram' : ch === 'WhatsApp' ? 'MessageCircle' : ch === 'LinkedIn' ? 'Linkedin' : 'Twitter'} size={14} />
+                         <Icon name={ch === 'Instagram' ? 'Instagram' : ch === 'WhatsApp' ? 'WhatsApp' : ch === 'LinkedIn' ? 'Linkedin' : 'Twitter'} size={14} />
                       </div>
                     ))}
                   </div>
@@ -76,7 +76,7 @@ export const Schedule: FC = () => {
                    <div class="absolute top-3 left-3 flex gap-1 text-[var(--text-primary)]">
                     {post.channels.map(ch => (
                       <div class="bg-[var(--bg-nav)] text-[var(--text-primary)] p-1.5 rounded-lg border border-[var(--border-subtle)] shadow-sm" title={ch}>
-                         <Icon name={ch === 'Instagram' ? 'Instagram' : ch === 'WhatsApp' ? 'MessageCircle' : ch === 'LinkedIn' ? 'Linkedin' : 'Twitter'} size={14} />
+                         <Icon name={ch === 'Instagram' ? 'Instagram' : ch === 'WhatsApp' ? 'WhatsApp' : ch === 'LinkedIn' ? 'Linkedin' : 'Twitter'} size={14} />
                       </div>
                     ))}
                   </div>

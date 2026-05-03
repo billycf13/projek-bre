@@ -20,8 +20,19 @@ export const Layout: FC<
         {/* Theme tokens */}
         <link rel="stylesheet" href="/static/styles.css" />
 
-        {/* Theme persistence */}
-        <script>{`(function(){var t=localStorage.getItem('theme');if(t==='light')document.documentElement.classList.add('light')})()`}</script>
+        {/* Theme persistence: prevent flash by running before CSS/Body */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            try {
+              var theme = localStorage.getItem('theme');
+              if (theme === 'light') {
+                document.documentElement.classList.add('light');
+              } else {
+                document.documentElement.classList.remove('light');
+              }
+            } catch (e) {}
+          })();
+        `}} />
       </head>
       <body class="m-0 h-screen bg-[var(--bg-body)] text-[var(--text-primary)] font-[system-ui,-apple-system,sans-serif]">
         <div class="flex h-screen overflow-hidden">
