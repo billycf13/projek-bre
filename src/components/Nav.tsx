@@ -56,14 +56,50 @@ export const Nav: FC<{ active?: string }> = ({ active }) => {
         >
           <Icon name="SunMoon" size={20} />
         </button>
-        <a
-          href="/profile"
-          class={`${itemBase} mt-1`}
-          aria-label="Profile"
-          title="Profile"
-        >
-          <Icon name="CircleUserRound" size={20} />
-        </a>
+        
+        {/* Profile Menu with Popup */}
+        <div class="relative mt-1" id="profile-menu-container">
+          <button
+            id="profile-trigger"
+            class={`${itemBase}`}
+            aria-label="Profile Menu"
+            title="Profile Menu"
+            onclick="document.getElementById('profile-popup').classList.toggle('hidden')"
+          >
+            <Icon name="CircleUserRound" size={20} />
+          </button>
+          
+          {/* Popup Menu */}
+          <div 
+            id="profile-popup" 
+            class="hidden absolute left-full bottom-0 ml-2 w-40 bg-[var(--bg-nav)] border border-[var(--border-subtle)] rounded-xl shadow-xl z-[200] overflow-hidden animate-in fade-in slide-in-from-left-2 duration-200"
+          >
+            <div class="p-2 border-b border-[var(--border-subtle)] bg-[var(--bg-body)]">
+               <div class="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest px-2 py-1">Akun Saya</div>
+            </div>
+            <div class="p-1">
+              <a href="/profile" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--text-primary)] hover:bg-[var(--bg-nav-hover)] hover:text-[var(--accent)] rounded-lg transition-colors no-underline border-none">
+                <Icon name="User" size={16} />
+                <span>Profil</span>
+              </a>
+              <button class="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-500 hover:bg-red-500/10 rounded-lg transition-colors border-none bg-transparent cursor-pointer">
+                <Icon name="LogOut" size={16} />
+                <span>Logout</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Script to close popup when clicking outside */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          document.addEventListener('click', function(event) {
+            const container = document.getElementById('profile-menu-container');
+            const popup = document.getElementById('profile-popup');
+            if (container && !container.contains(event.target)) {
+              popup.classList.add('hidden');
+            }
+          });
+        `}} />
       </div>
     </nav>
   );

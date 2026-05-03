@@ -33,6 +33,9 @@ export const ChatInput: FC = () => {
           class="flex-1 bg-transparent border-none text-sm text-[var(--text-primary)] p-2 resize-none focus:outline-none min-h-[20px] max-h-32"
           rows={1}
         ></textarea>
+        <button class="p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] bg-transparent border-none cursor-pointer flex-shrink-0">
+          <Icon name="Smile" size={20} />
+        </button>
         <button class="p-2 text-[var(--accent)] hover:text-blue-400 bg-transparent border-none cursor-pointer flex-shrink-0" id="btn-send">
           <Icon name="Send" size={20} />
         </button>
