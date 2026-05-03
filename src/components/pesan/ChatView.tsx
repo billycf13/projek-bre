@@ -52,18 +52,40 @@ export const ChatView: FC<{
         ))}
       </div>
 
+      {/* Input Area */}
+      <ChatInput />
+
       {/* Auto-scroll to bottom on load */}
       <script dangerouslySetInnerHTML={{ __html: `
         (function() {
-          var container = document.getElementById('chat-messages-container');
-          if (container) {
-            container.scrollTop = container.scrollHeight;
+          function scrollToBottom() {
+            var container = document.getElementById('chat-messages-container');
+            if (container) {
+              container.scrollTop = container.scrollHeight;
+            }
           }
+          
+          // Execute immediately
+          scrollToBottom();
+          
+          // Execute after a short delay to account for layout shifts (e.g., ChatInput rendering)
+          setTimeout(scrollToBottom, 50);
+          setTimeout(scrollToBottom, 300);
+
+          // Listen to image load events within the container
+          document.addEventListener('DOMContentLoaded', function() {
+            var container = document.getElementById('chat-messages-container');
+            if (container) {
+              var images = container.querySelectorAll('img');
+              images.forEach(function(img) {
+                if (!img.complete) {
+                  img.addEventListener('load', scrollToBottom);
+                }
+              });
+            }
+          });
         })();
       `}} />
-
-      {/* Input Area */}
-      <ChatInput />
     </div>
   );
 };
