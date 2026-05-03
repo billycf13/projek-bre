@@ -20,8 +20,8 @@ app.use("/static/*", serveStatic({ root: "./src/" }));
 
 // Routes
 app.get("/login", (c) => c.html(<Login />));
-// app.get("/", (c) => c.html(<Home />));
-app.get("/", (c) => c.html(<Pesan />));
+app.get("/", (c) => c.html(<Home />));
+app.get("/pesan", (c) => c.html(<Pesan />));
 
 // Kontak Routes
 app.get("/kontak", (c) => c.html(<Kontak />));

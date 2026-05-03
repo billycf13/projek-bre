@@ -2,7 +2,7 @@ import type { FC } from "hono/jsx";
 import { Icon } from "./Icon";
 
 const navItems = [
-  { icon: "MessageSquareText" as const, label: "Pesan", href: "/" },
+  { icon: "MessageSquareText" as const, label: "Pesan", href: "/pesan" },
   { icon: "Contact" as const, label: "Kontak", href: "/kontak" },
   { icon: "Megaphone" as const, label: "Kampanye", href: "/kampanye" },
   { icon: "CalendarClock" as const, label: "Schedule", href: "/schedule" },
