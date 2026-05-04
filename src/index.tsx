@@ -12,13 +12,15 @@ import { Profile } from "./pages/Profile";
 import { Schedule } from "./pages/Schedule";
 import { Kampanye } from "./pages/Kampanye";
 import { Login } from "./pages/Login";
+import { Setup } from "./pages/Setup";
 
 const app = new Hono();
 
 // Static files
-app.use("/static/*", serveStatic({ root: "./src/" }));
+app.use("/static/*", serveStatic({ root: "./src/public" }));
 
 // Routes
+app.get("/setup", (c) => c.html(<Setup />));
 app.get("/login", (c) => c.html(<Login />));
 app.get("/", (c) => c.html(<Home />));
 app.get("/pesan", (c) => c.html(<Pesan />));
