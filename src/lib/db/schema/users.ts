@@ -5,7 +5,8 @@ import {
     text,
     boolean,
     timestamp,
-    pgEnum
+    pgEnum,
+    jsonb
 } from 'drizzle-orm/pg-core'
 
 export const userRoleEnum = pgEnum('user_role', [
@@ -29,8 +30,28 @@ export const users = pgTable('users', {
     role: userRoleEnum('role').notNull(),
     status: userStatusEnum('status').notNull(),
     avatarUrl: text('avatar_url'),
+    phoneNumber: varchar('phone_number', { length: 20 }),
+    jobTitle: varchar('job_title', { length: 100 }),
+    bio: text('bio'),
+    
+    // Security & Auth
+    twoFactorEnabled: boolean('two_factor_enabled').default(false).notNull(),
+    passwordChangedAt: timestamp('password_changed_at'),
+    
+    // Preferences
+    notificationPrefs: jsonb('notification_prefs').default({
+        new_message: true,
+        weekly_report: true,
+        login_detected: true
+    }).notNull(),
+    
+    // Session Stats
     isOnline: boolean('is_online').default(false).notNull(),
     lastSeenAt: timestamp('last_seen_at'),
+    lastLoginAt: timestamp('last_login_at'),
+    lastLoginIp: varchar('last_login_ip', { length: 45 }),
+    lastUserAgent: text('last_user_agent'),
+    
     tokenVerification: text('token_verification'),
     tokenVerificationExpiry: timestamp('token_verification_expiry'),
     tokenResetPassword: text('token_reset_password'),
