@@ -15,6 +15,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc11",
     "bullmq": "^5.76.5",
     "drizzle-orm": "^0.45.2",
     "hono": "^4.12.16",
